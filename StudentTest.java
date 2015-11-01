@@ -52,11 +52,52 @@ public class StudentTest {
 					i++;
 				}
 			case 2: //view
-				
+				for (int j = 0; j < i; j++) {
+					int k = j + 1;
+					System.out.println( k + ": " + mc[j].ID +"/"+mc[j].Sname+"/"+mc[j].department+"/"+mc[j].phonNumber);
+				} 
+				break;
 			case 3: //update
-				
+				Scanner scan1 = new Scanner(System.in);
+				System.out.print("update하고자 하는 학생 ID을 입력하세요:");
+				String ID = scan1.nextLine();
+			    for(int j = 0; j<i; j++){
+					if (ID.equals(mc[j].ID)) {
+						System.out.println(mc[j].ID +"/"+mc[j].Sname+"/"+mc[j].department+"/"+mc[j].phonNumber);
+						System.out.println("update할 정보를 입력 하세요");
+						System.out.print("phon number:");
+						mc[j].phonNumber = scan1.nextLine();
+						System.out.println("update 되었습니다.");
+						break;
+					}
+					else{
+						System.out.println("존재하지 않는 ID 입니다.");
+					}
+				} 
+			    break;
 			case 4: //delete
-				
+				Scanner scan2 = new Scanner(System.in);
+				System.out.print("delete하고자 하는 학생 ID을 입력하세요:");
+				String ID1 = scan2.nextLine();
+			    int t = -1;
+			    for(int j = 0; j<i; j++){
+					if (ID1.equals(mc[j].ID)) {
+						System.out.println(mc[j].ID +"/"+mc[j].Sname+"/"+mc[j].department+"/"+mc[j].phonNumber);
+						t = j;
+						break;
+					}
+				}
+			    if(t != -1){
+			    	for(;t<i;t++){
+			    		mc[t] = mc[t+1];
+			    	}
+			    	i = i-1;
+			    	System.out.println("위의 학생 정보가 delete 되었습니다.");
+			    }
+			    else{
+			    	System.out.println("존재하지 않는 ID 입니다.");
+			    }
+			    break;
 			case 5: //file save
 				
 			case 6: //file open
