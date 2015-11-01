@@ -35,7 +35,22 @@ public class StudentTest {
 			}while(menu < 1 || menu > 7);
 			switch(menu){
 			case 1: //add
-				
+				if(i == 10)
+					System.out.println("더이상 입력할 수 없습니다");
+				else{
+					System.out.println("[학생 정보 입력]");
+					st[i] = new Student();
+					scan.nextLine();  // 자바 Scanner의 문제로 불필요한 개행문자를 제거하기 위해 임시로 넣은 코드임
+					System.out.print("ID:");
+					st[i].ID = scan.nextLine();
+					System.out.print("name:");
+					st[i].Sname = scan.nextLine();
+					System.out.print("department:");
+					st[i].department = scan.nextLine();
+					System.out.print("phon number:");
+					st[i].phonNumber = scan.nextLine();
+					i++;
+				}
 			case 2: //view
 				
 			case 3: //update
